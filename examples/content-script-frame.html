@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test page with dynamically created iframe</title>
+</head>
+<body>
+<p>On this page content script won't be injected into the frame. In the console you will see only one record "Injected into ..."</p>
+<script>
+    var frame = document.createElement("iframe");
+//    frame.name = 'frame-name';
+    frame.setAttribute('srcdoc', '');
+    (document.body || document.head || document.documentElement).appendChild(frame);
+    var frameWindow = frame.contentWindow;
+    frameWindow.document.write("<!DOCTYPE html><html><head></head><body></body></html>");
+    frameWindow.document.close();
+</script>
+</body>
+</html>
