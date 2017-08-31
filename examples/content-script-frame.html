@@ -8,7 +8,6 @@
 <p>On this page content script won't be injected into the frame. In the console you will see only one record "Injected into ..."</p>
 <script>
     var frame = document.createElement("iframe");
-//    frame.name = 'frame-name';
     frame.setAttribute('srcdoc', '');
     (document.body || document.head || document.documentElement).appendChild(frame);
     var frameWindow = frame.contentWindow;
